@@ -43,6 +43,22 @@ void drawDiamond(int2 center, int size) {
 	}
 }
 
+void drawDiamondRepeat(int2 center, int size)
+{
+	for (int y = -size; y <= size; y++) {
+		int span = size - abs(y);
+		for (int x = -span; x <= span; x++) {
+			int2 pos = center + int2(x, y);
+
+			// Wrap around (tile the image)
+			pos.x = (pos.x % texResolution + texResolution) % texResolution;
+			pos.y = (pos.y % texResolution + texResolution) % texResolution;
+
+			Result[uint2(pos)] = circleColor;
+		}
+	}
+}
+
 [numthreads(32,1,1)]
 void Circles (uint3 id : SV_DispatchThreadID)
 {
@@ -54,7 +70,7 @@ void Circles (uint3 id : SV_DispatchThreadID)
 	
 	uint radius = (int)circlesBuffer[id.x].radius;
 
-	drawDiamond( center, radius );
+	drawDiamondRepeat( center, radius );
 }
 
 [numthreads(8,8,1)]
