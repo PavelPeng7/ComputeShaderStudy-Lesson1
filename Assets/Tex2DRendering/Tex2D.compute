@@ -1,0 +1,10 @@
+﻿#pragma kernel DrawTex2D
+
+RWTexture2D<float4> Result;
+int _TexResolution;
+
+[numthreads(8,8,1)]
+void DrawTex2D (uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = float4((float2)id.xy /(float)_TexResolution, 0, 1.0);
+}

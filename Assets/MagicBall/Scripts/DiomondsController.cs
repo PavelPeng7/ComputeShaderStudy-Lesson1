@@ -101,7 +101,7 @@ public class DiomondsController : MonoBehaviour
             shader.SetTexture(diomondsHandle, "Result", outputTexture);
             shader.SetTexture(clearHandle, "Result", outputTexture);
 
-            rend.material.SetTexture("_MainTex", outputTexture);
+            rend.sharedMaterial.SetTexture("_MainTex", outputTexture);
         }
 
         private void DispatchKernel(int count)

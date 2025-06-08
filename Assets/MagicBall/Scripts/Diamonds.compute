@@ -1,9 +1,6 @@
-﻿// Each #kernel tells which function to compile; you can have many kernels
-#pragma kernel Diomonds
+﻿#pragma kernel Diomonds
 #pragma kernel Clear
 
-// Create a RenderTexture with enableRandomWrite flag and set it
-// with cs.SetTexture
 shared RWTexture2D<float4> Result;
 
 struct diomonds
@@ -20,19 +17,6 @@ float4 diomondsColor;
 int texResolution;
 int clearScreen = 0;
 float time;
-
-/*Returns pseudo random number in range 0 <= x < 1 */
-float random(float value, float seed = 0.546){
-	float random = (frac(sin(value + seed) * 143758.5453));// + 1.0)/2.0;
-	return random;
-}
-
-float2 random2(float value){
-	return float2(
-		random(value, 3.9812),
-		random(value, 7.1536)
-	);
-}
 
 void drawDiamond(int2 center, int size) {
 	for (int y = -size; y <= size; y++) {
