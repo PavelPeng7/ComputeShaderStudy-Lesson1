@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 727764776}
   - component: {fileID: 727764775}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: MagicBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
   shader: {fileID: 7200000, guid: a7b18e167bb504f6986bc40bdafa6fda, type: 3}
   texResolution: 1024
   clearColor: {r: 0, g: 0, b: 0, a: 0}
-  circleColor: {r: 0.33490568, g: 0.37286943, b: 1, a: 0}
-  count: 100
+  diomondsColor: {r: 1, g: 0.843114, b: 0.36320752, a: 1}
+  count: 20
 --- !u!135 &727764776
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -399,130 +399,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -3.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1456143112
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1456143117}
-  - component: {fileID: 1456143116}
-  - component: {fileID: 1456143115}
-  - component: {fileID: 1456143114}
-  - component: {fileID: 1456143113}
-  m_Layer: 0
-  m_Name: DiamondRenderer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1456143113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456143112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bba34e831ae842faa50e98690e5ef1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 7200000, guid: a7b18e167bb504f6986bc40bdafa6fda, type: 3}
-  texResolution: 1024
-  clearColor: {r: 0.066082254, g: 0.07235673, b: 0.084905684, a: 0}
-  circleColor: {r: 0.3693485, g: 0.48941198, b: 0.9433962, a: 0}
-  count: 10
---- !u!64 &1456143114
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456143112}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1456143115
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456143112}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7f9e26d2d601b44f9b7fba54991f67a3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1456143116
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456143112}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1456143117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456143112}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: 0.71, z: 12.04}
-  m_LocalScale: {x: 18.51, y: 18.51, z: 18.51}
-  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -612,7 +488,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.11605554, g: 0.119701296, b: 0.1509434, a: 0}
+  m_BackGroundColor: {r: 0.21809362, g: 0.22503003, b: 0.2735849, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -662,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 1901474353}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09469451, y: -0, z: -0, w: 0.99550635}
-  m_LocalPosition: {x: 0, y: 1.54, z: -6.52}
+  m_LocalPosition: {x: 0, y: 1.21, z: -4.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -692,7 +568,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -738,6 +614,10 @@ Material:
     m_TexEnvs:
     - _MainTex:
         m_Texture: {fileID: 223954635}
+        m_Scale: {x: 4, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _MatCap:
+        m_Texture: {fileID: 2800000, guid: f7b009bc793255f49bb71f7de4da61f8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -754,11 +634,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Float: 2
+    - _DiamondsColorIntensity: 2
+    - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ThresholdMax: 1
+    - _ThresholdMin: 0.9
     - _Tilling: 10
-    m_Colors: []
+    m_Colors:
+    - _BallColor: {r: 0.7898411, g: 0.7688679, b: 1, a: 0}
+    - _Color: {r: 0.3960784, g: 0.60016274, b: 0.8862745, a: 0}
   m_BuildTextureStacks: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -766,6 +651,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1901474356}
   - {fileID: 98809305}
-  - {fileID: 1456143117}
   - {fileID: 727764779}
   - {fileID: 1723960390}
