@@ -14,6 +14,7 @@ public class DiomondsController : MonoBehaviour
     public int texResolution = 1024;
     public Color clearColor = Color.black;
     public Color diomondsColor = Color.white;
+    [Range(1,20)]
     public int count = 10;
 
     struct Diomonds
@@ -75,7 +76,7 @@ public class DiomondsController : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            DispatchKernel(10);
+            DispatchKernel(count);
         }
     }
 
@@ -187,7 +188,7 @@ public class DiomondsController : MonoBehaviour
             {
                 if (!Application.isPlaying)
                 {
-                    DispatchKernel(10);
+                    DispatchKernel(count);
                 }
             }
             
