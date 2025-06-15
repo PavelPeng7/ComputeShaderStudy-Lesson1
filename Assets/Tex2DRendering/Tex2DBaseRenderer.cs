@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+[ExecuteAlways]
 public class Tex2DBaseRenderer : MonoBehaviour
 {
     #region Compute Shader Properties
@@ -49,7 +54,7 @@ public class Tex2DBaseRenderer : MonoBehaviour
         shader.SetTexture(0, "Result", outputTexture);
         shader.SetInt("_TexResolution", texResolution);
 
-        rend.material.SetTexture("_MainTex", outputTexture);
+        rend.sharedMaterial.SetTexture("_MainTex", outputTexture);
         DispatchShader(texResolution / 8, texResolution / 8, 1);
         outputTexture.GenerateMips();
     }
@@ -59,4 +64,5 @@ public class Tex2DBaseRenderer : MonoBehaviour
     }
 
     #endregion
+    
 }

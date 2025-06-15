@@ -9,6 +9,7 @@ using UnityEditor;
 public class DiomondsController : MonoBehaviour
 {
     #region ComputeShader Properties
+    
     public ComputeShader shader;
     public int texResolution = 1024;
     public Color clearColor = Color.black;
@@ -19,10 +20,11 @@ public class DiomondsController : MonoBehaviour
     {
         public Vector2 origin;
         public Vector2 velocity;
-        public float radius;
+        public float scale;
     }
 
     Diomonds[] diomondsData;
+    
     #endregion
 
     #region Runtime Properties
@@ -39,9 +41,10 @@ public class DiomondsController : MonoBehaviour
 
     void OnEnable()
     {
-#if UNITY_EDITOR
-        EditorApplication.update += EditorUpdate;
-#endif
+        #if UNITY_EDITOR
+                EditorApplication.update += EditorUpdate;
+        #endif
+        
         SetupOutputTexture();
         rend = GetComponent<Renderer>();
         if (rend != null) rend.enabled = true;
@@ -52,9 +55,10 @@ public class DiomondsController : MonoBehaviour
 
     void OnDisable()
     {
-#if UNITY_EDITOR
-        EditorApplication.update -= EditorUpdate;
-#endif
+        #if UNITY_EDITOR
+                EditorApplication.update -= EditorUpdate;
+        #endif
+        
         ReleaseResources();
     }
 
@@ -74,16 +78,6 @@ public class DiomondsController : MonoBehaviour
             DispatchKernel(10);
         }
     }
-
-#if UNITY_EDITOR
-    void EditorUpdate()
-    {
-        if (!Application.isPlaying)
-        {
-            DispatchKernel(10);
-        }
-    }
-#endif
 
     private void OnDestroy()
     {
@@ -144,7 +138,7 @@ public class DiomondsController : MonoBehaviour
             {
                 origin = new Vector2(Random.value * texResolution, Random.value * texResolution),
                 velocity = new Vector2((Random.value * speed) - halfSpeed, (Random.value * speed) - halfSpeed),
-                radius = Random.value * radiusRange + minRadius
+                scale = Random.value * radiusRange + minRadius
             };
             diomondsData[i] = d;
         }
@@ -188,8 +182,15 @@ public class DiomondsController : MonoBehaviour
     #endregion
 
     #region Editor Support
-
         #if UNITY_EDITOR
+            void EditorUpdate()
+            {
+                if (!Application.isPlaying)
+                {
+                    DispatchKernel(10);
+                }
+            }
+            
             private void OnValidate()
             {
                 if (!enabled || shader == null) return;
@@ -206,6 +207,5 @@ public class DiomondsController : MonoBehaviour
                 InitShader();
             }
         #endif
-
     #endregion
 }
