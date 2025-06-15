@@ -43,6 +43,25 @@ void drawDiamondRepeat(int2 center, int size)
 	}
 }
 
+void drawBoxColorXY(int2 center, int size)
+{
+	for (int y = -size; y <= size; y++) {
+		for (int x = -size; x <= size; x++) {
+			int2 pos = center + int2(x, y);
+
+			// Wrap around (tile the image)
+			pos.x = (pos.x % texResolution + texResolution) % texResolution;
+			pos.y = (pos.y % texResolution + texResolution) % texResolution;
+
+			float r = pos.x / (float)texResolution;
+			float g = pos.y / (float)texResolution;
+			float3 color = float3(r, g, 0);
+
+			Result[uint2(pos)] = float4(color, 1); // RGBA
+		}
+	}
+}
+
 [numthreads(32,1,1)]
 void Diomonds (uint3 id : SV_DispatchThreadID)
 {
@@ -54,7 +73,9 @@ void Diomonds (uint3 id : SV_DispatchThreadID)
 	
 	uint radius = (int)diomondsBuffer[id.x].radius;
 
-	drawDiamondRepeat( center, radius );
+	// Test 32 Thread Group
+	drawBoxColorXY(center, radius);
+	// drawDiamondRepeat( center, radius );
 }
 
 [numthreads(8,8,1)]
